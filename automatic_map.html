@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="jquery@*" data-semver="2.0.3" src="../UI_Builder/scripts/js/jquery.js"></script>
+
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="../UI_Builder/bootstrap/js/bootstrap.js"></script>
+
+    <script src="../UI_Builder/scripts/js/sidebar.js"></script>
+
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="../UI_Builder/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../UI_Builder/styles/style.css" />
+    <link rel="stylesheet" href="../UI_Builder/styles/sidebar.css" />
+	<link rel="stylesheet" href="../UI_Builder/styles/MarkerCluster.css" />
+	<link rel="stylesheet" href="../UI_Builder/styles/MarkerCluster.Default.css" />
+
+	<title></title>
+
+	<!-- StyleSheets -->
+	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" /> -->
+	<link rel="stylesheet" href="../UI_Builder/styles/leaflet.css" />
+	<link rel="stylesheet" href="../UI_Builder/leaflet_minimap/Control.MiniMap.css" />
+	<link rel="stylesheet" href="../UI_Builder/styles/mapStyle.css">
+	<link rel="stylesheet" href="../UI_Builder/Leaflet.fullscreen-gh-pages/src/leaflet.fullscreen.css">
+	<link rel="stylesheet" href="../UI_Builder/scripts/js/trNgGrid.css"/>
+	<link rel="stylesheet" href="../UI_Builder/styles/easyPrint.css"/>
+	<link rel="stylesheet" href="../UI_Builder/styles/angular.rangeSlider.css"/>
+	<link rel="stylesheet" href="../UI_Builder/styles/leaflet.awesome-markers.css"/>
+	<!-- // <script src="../UI_Builder/scripts/js/slider.js"></script> -->
+     <!-- <script src="../UI_Builder/scripts/js/leaflet.easyPrint.js"></script> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-source.min.js"></script>
+	<script src="../UI_Builder/scripts/js/angular-sanitize.min.js"></script>
+	<script src="../UI_Builder/scripts/js/ng-csv.js"></script>
+
+	<script src="../UI_Builder/scripts/js/uiBootstrap.js"></script>
+    <script src="../UI_Builder/scripts/js/bootstrap-table.css"></script>
+    <script src="../UI_Builder/scripts/js/bootstrap-table.js"></script>
+
+	<!-- // <script src="https://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script> -->
+	<script src="../UI_Builder/scripts/js/leaflet.js"></script>
+	<script src="../UI_Builder/leaflet_minimap/Control.MiniMap.js"></script>
+	<script type="text/javascript" src="scripts/js/angular-simple-logger.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script> -->
+	<script src="../UI_Builder/Leaflet.fullscreen-gh-pages/src/Leaflet.fullscreen.js"></script>
+	<script src="../UI_Builder/scripts/js/trNgGrid.js"></script>
+	<script src="../UI_Builder/scripts/js/html2canvas.js"></script>
+	<script src="../UI_Builder/scripts/js/canvas2image.js"></script>
+	<script src="../UI_Builder/scripts/js/angular.rangeSlider.js"></script>
+	<script src="../UI_Builder/scripts/js/MarkerCluster.js"></script>
+	<script src="../UI_Builder/scripts/js/leaflet.markercluster-src.js"></script>
+	<Script src="../UI_Builder/scripts/js/leaflet.awesome-markers.js"></script>
+	<Script src="../UI_Builder/scripts/js/leaflet.awesome-markers.min.js"></script>
+	<script src="../UI_Builder/scripts/js/numeral.js"></script>
+	<script src="../UI_Builder/data/revamp_config_file.js"></script>
+	<!-- <script src="../UI_Builder/data/vizDetails.js"></script> -->
+	<!-- Bootstrap Modules --> 
+
+	<script src="../UI_Builder/angular-leaflet-directive-master/dist/angular-leaflet-directive.min.js"></script>
+		<!-- Modules -->
+	<script src="scripts/app.js"></script>
+    
+	<!-- Javascript Scripts --> 
+	
+	<script src="../UI_Builder/data/chicago_map.js"></script>
+	<script src="scripts/controllers/DataPHPController.js"></script>
+	
+	<!-- Services --> 
+	<script src="scripts/services/data_uihp_service.js"></script>
+
+<!-- <script src="scripts/directives/ui_directive.js"></script> -->
+	<!-- Controllers -->
+	<script src="scripts/controllers/MapController.js"></script>
+	<script src="scripts/controllers/ButtonsController.js"></script>
+
+	<!-- Directives -->
+	<!-- <script src="scripts/directives/leaflet_map.js"></script>-->
+	<!-- Files -->
+	<script>
+		function Download(){
+		  window.open('../UI_Builder/data/readme.txt');
+		}
+	</script>
+  </head>
+
+  <body ng-app="leafletApp">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-static navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">UI Builder </a>
+        </div>
+        <button type="button" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+    </div>
+    <!-- Begin page content -->
+    <div class="container-fluid" ng-controller="mapController" ng-init>
+    <!-- <button class="btn btn-default" ng-click="window.print()"> Button</button> -->
+      <div class="row">
+        <div class="main col-md-9 col-md-offset-3">
+        <!-- LEAFLET Map Code --> 
+			<div id="leafet_Map" >
+				<div  id="LL">
+				 <!-- <leaflet width="100%" markers="markers" layers="layers" height="480px" controls="controls" center="chicago" legend="legend" defaults="defaults" geojson="geojson"></leaflet>
+				 </div> -->
+	    			<div ng-controller="dataPHPController">
+						
+						<table tr-ng-grid="" items="uihp_update" cell-width="10em" fields="TableFieldNames">
+							
+						</table>
+					</div>
+			</div>
+        </div>
+
+        <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-left sidebar-animate sidebar-md-show">
+			<div>
+				<!-- <button class="btn btn-lg btn-prim3ary" ng-click="showModal()">Open the map in a modal</a></button> -->
+				<ul class="list-unstyled">
+					<li ng-repeat="name in Headers | uiFilter">
+						<h4>
+							<label title={{name.Header_Label}} > 
+								{{name.Header_Name}}
+							</label>
+						</h4>
+						<div class="btn-group" ng-click="change()" >
+								<div class="genericdirective ng-scope" type="name.Header_Type">
+								<!-- ng-repeat="obj in someArray" type="obj.type" -->
+								<!-- Not replaced by the actual directive -->
+								</div>
+						
+						</div>
+					</li>
+					<!-- Display Non Button Group values like Transparency Control --> 
+					<li ng-repeat="name in Headers | filter : 'slider'">
+						<h4>
+							<label title={{name.Header_Label}} > 
+								{{name.Header_Name}}
+							</label>
+						</h4>
+						<div class="genericdirective ng-scope" type="name.Header_Type">
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<!-- Hidden NavBar --> 
+		<!-- All the map controls to be put in this --> 
+        <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-right sidebar-animate">
+			<div>
+			</div>
+        </div>
+      </div>
+    </div>
+    <?php
+	}
+	else
+	  echo "Sorry !! Please register with us to see this content";
+	?>
+  </body>
+
+</html>
