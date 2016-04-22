@@ -56,11 +56,7 @@
 	<Script src="../UI_Builder/scripts/js/leaflet.awesome-markers.js"></script>
 	<Script src="../UI_Builder/scripts/js/leaflet.awesome-markers.min.js"></script>
 	<script src="../UI_Builder/scripts/js/numeral.js"></script>
-	
-	<!-- Changes to tehe configuration file can be made in the below mentioned file -->
-	<script src="../UI_Builder/data/ui_config.js"></script>
-
-
+	<script src="../UI_Builder/data/revamp_config_file.js"></script>
 	<!-- <script src="../UI_Builder/data/vizDetails.js"></script> -->
 	<!-- Bootstrap Modules --> 
 
@@ -71,14 +67,15 @@
 	<!-- Javascript Scripts --> 
 	
 	<script src="../UI_Builder/data/chicago_map.js"></script>
+	<script src="scripts/controllers/DataPHPController.js"></script>
 	
 	<!-- Services --> 
-	<script src="scripts/services/data_service.js"></script>
+	<script src="scripts/services/data_uihp_service.js"></script>
 
 <!-- <script src="scripts/directives/ui_directive.js"></script> -->
 	<!-- Controllers -->
-	<script src="scripts/controllers/LogicController.js"></script>
-	<script src="data/food.js"></script>
+	<script src="scripts/controllers/MapController.js"></script>
+	<script src="scripts/controllers/ButtonsController.js"></script>
 
 	<!-- Directives -->
 	<!-- <script src="scripts/directives/leaflet_map.js"></script>-->
@@ -111,18 +108,21 @@
 
     </div>
     <!-- Begin page content -->
-    <div class="container-fluid" ng-controller="logicController" ng-init>
+    <div class="container-fluid" ng-controller="mapController" ng-init>
     <!-- <button class="btn btn-default" ng-click="window.print()"> Button</button> -->
       <div class="row">
         <div class="main col-md-9 col-md-offset-3">
         <!-- LEAFLET Map Code --> 
 			<div id="leafet_Map" >
 				<div  id="LL">
-				 <leaflet width="100%" markers="markers" layers="layers" height="480px" controls="controls" center="chicago" legend="legend" defaults="defaults" geojson="geojson"></leaflet>
-				 </div>
-	    			<table tr-ng-grid="" items="gridData" cell-width="10em" fields="TableFieldNames">
+				 <!-- <leaflet width="100%" markers="markers" layers="layers" height="480px" controls="controls" center="chicago" legend="legend" defaults="defaults" geojson="geojson"></leaflet>
+				 </div> -->
+	    			<div ng-controller="dataPHPController">
+						
+						<table tr-ng-grid="" items="uihp_update" cell-width="10em" fields="TableFieldNames">
 							
-					</table>
+						</table>
+					</div>
 			</div>
         </div>
 
