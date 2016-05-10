@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="jquery@*" data-semver="2.0.3" src="../test_CPAR/scripts/js/jquery.js"></script>
+
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="../test_CPAR/bootstrap/js/bootstrap.js"></script>
+
+    <script src="../test_CPAR/scripts/js/sidebar.js"></script>
+
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="../test_CPAR/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../test_CPAR/styles/style.css" />
+    <link rel="stylesheet" href="../test_CPAR/styles/sidebar.css" />
+	<link rel="stylesheet" href="../test_CPAR/styles/MarkerCluster.css" />
+	<link rel="stylesheet" href="../test_CPAR/styles/MarkerCluster.Default.css" />
+
+	<title></title>
+
+	<!-- StyleSheets -->
+	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" /> -->
+	<link rel="stylesheet" href="../test_CPAR/styles/leaflet.css" />
+	<link rel="stylesheet" href="../test_CPAR/leaflet_minimap/Control.MiniMap.css" />
+	<link rel="stylesheet" href="../test_CPAR/styles/mapStyle.css">
+	<link rel="stylesheet" href="../test_CPAR/Leaflet.fullscreen-gh-pages/src/leaflet.fullscreen.css">
+	<link rel="stylesheet" href="../test_CPAR/scripts/js/trNgGrid.css"/>
+	<link rel="stylesheet" href="../test_CPAR/styles/easyPrint.css"/>
+	<link rel="stylesheet" href="../test_CPAR/styles/angular.rangeSlider.css"/>
+	<link rel="stylesheet" href="../test_CPAR/styles/leaflet.awesome-markers.css"/>
+	<!-- // <script src="../test_CPAR/scripts/js/slider.js"></script> -->
+     <!-- <script src="../test_CPAR/scripts/js/leaflet.easyPrint.js"></script> -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
+	<script src="../test_CPAR/scripts/js/angular-sanitize.min.js"></script>
+	<script src="../test_CPAR/scripts/js/ng-csv.js"></script>
+
+	<script src="../test_CPAR/scripts/js/uiBootstrap.js"></script>
+    <script src="../test_CPAR/scripts/js/bootstrap-table.css"></script>
+    <script src="../test_CPAR/scripts/js/bootstrap-table.js"></script>
+
+	<!-- // <script src="https://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script> -->
+	<script src="../test_CPAR/scripts/js/leaflet.js"></script>
+	<script src="../test_CPAR/leaflet_minimap/Control.MiniMap.js"></script>
+	<script type="text/javascript" src="scripts/js/angular-simple-logger.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+	<script src="../test_CPAR/Leaflet.fullscreen-gh-pages/src/Leaflet.fullscreen.js"></script>
+	<script src="../test_CPAR/scripts/js/trNgGrid.js"></script>
+	<script src="../test_CPAR/scripts/js/html2canvas.js"></script>
+	<script src="../test_CPAR/scripts/js/canvas2image.js"></script>
+	<script src="../test_CPAR/scripts/js/angular.rangeSlider.js"></script>
+	<script src="../test_CPAR/scripts/js/MarkerCluster.js"></script>
+	<script src="../test_CPAR/scripts/js/leaflet.markercluster-src.js"></script>
+	<Script src="../test_CPAR/scripts/js/leaflet.awesome-markers.js"></script>
+	<Script src="../test_CPAR/scripts/js/leaflet.awesome-markers.min.js"></script>
+	<script src="../test_CPAR/data/check_community_partners.js"></script>
+	<script src="../test_CPAR/data/il_zip_3.js"></script>
+	<script src="../test_CPAR/data/chicago.js"></script>
+	<script src="../test_CPAR/data/community_centers.js"></script>
+	<script src="../test_CPAR/data/edit_centers.js"></script>
+	<script src="../test_CPAR/data/cc_information.js"></script>
+	<!-- <script src="../test_CPAR/data/vizDetails.js"></script> -->
+	<!-- Bootstrap Modules --> 
+	<script src="../test_CPAR/angular-leaflet-directive-master/dist/angular-leaflet-directive.min.js"></script>
+    
+	<!-- Javascript Scripts --> 
+	
+	<script src="../test_CPAR/data/chicago_map.js"></script>
+	<script src="scripts/controllers/DataPHPController.js"></script>
+	
+	<!-- Services --> 
+	<script src="scripts/services/data_uihp_service.js"></script>
+	<!-- Modules -->
+	<script src="scripts/app.js"></script>
+
+	<!-- Controllers -->
+	<script src="scripts/controllers/MapController.js"></script>
+	<script src="scripts/controllers/ButtonsController.js"></script>
+	<!-- Directives -->
+	<!-- <script src="scripts/directives/leaflet_map.js"></script>-->
+	<!-- Files -->
+	<script src="../test_CPAR/data/config_file.js"></script>
+	<script>
+		function Download(){
+		  window.open('../test_CPAR/data/readme.txt');
+		}
+	</script>
+  </head>
+
+  <body ng-app="leafletApp">
+    <!-- Fixed navbar -->
+	 <!--  <?php
+   //                      session_start();
+   //                      $uids = file('/var/www/netids.txt');
+   //                      $uid=$_SESSION['uid'];
+			// if ($uid!=null)
+		{
+	  ?>  -->
+    <div class="navbar navbar-static navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">CRI - CHECK </a>
+        </div>
+        <button type="button" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+    </div>
+    <!-- Begin page content -->
+    <div class="container-fluid" ng-controller="mapController" ng-init>
+    <!-- <button class="btn btn-default" ng-click="window.print()"> Button</button> -->
+      <div class="row">
+        <div class="main col-md-9">
+			<div id="leafet_Map" >
+				<div  id="LL">
+				 <leaflet width="100%" markers="markers" layers="layers" height="480px" controls="controls" center="chicago" legend="legend" defaults="defaults" geojson="geojson"></leaflet>
+				 </div>
+	    			<div ng-controller="dataPHPController">
+						<table tr-ng-grid="" items="uihp_update" cell-width="10em" fields="TableFieldNames">
+							
+						</table>
+					</div>
+			</div>
+        </div>
+		<!-- Hidden NavBar --> 
+      </div>
+    </div>
+   <!--  <?php
+	}
+	// else
+	//   echo "Sorry !! Please register with us to see this content";
+	?> -->
+  </body>
+
+</html>
